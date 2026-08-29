@@ -13,6 +13,13 @@ h1 {
   font-size: 3rem;
 }
 
+h2 {
+  margin-bottom: 1rem;
+  margin-top: 15px;
+  font-size: 1.5rem;
+  color: #7c3aed;
+}
+
 .description {
   margin-bottom: 2rem;
   color: #555;

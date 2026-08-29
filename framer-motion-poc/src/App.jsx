@@ -9,9 +9,10 @@ function App() {
   return (
     <main className="app">
       <h1>Framer Motion POC</h1>
+      <h2>... numera "Motion for React"</h2>
 
       <p className="description">
-        Ett enkelt exempel på animationer och interaktioner med Motion for
+        Ett litet exempel på animationer och interaktioner skapat med Motion for
         React.
       </p>
 

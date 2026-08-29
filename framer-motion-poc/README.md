@@ -1,18 +1,21 @@
 # Framer Motion POC
 
-En enkel Proof of Concept (POC) skapad med React, Vite och Framer Motion / Motion for React.
+En liten Proof of Concept (POC) skapad med React, Vite och Framer Motion (numera kännetecknat som Motion for React).
 
-Projektet visar hur Framer Motion kan användas för att skapa animationer och interaktioner i ett React-projekt.
+Projektet visar hur Motion kan användas tillsammans med React för att skapa animationer, interaktioner och visuella UI-effekter med relativt lite kod.
 
 ## Funktioner
 
-* Visa och dölj ett interaktivt kort
-* Animation när kortet visas
-* Animation när kortet försvinner
-* Hover-effekt
-* Spring-animation
-* Kortet går att dra med musen
-* AnimatePresence används för exit-animation
+- Visa och dölj ett animerat kort
+- Animation när kortet visas
+- Animation när kortet försvinner
+- Hover-effekt på kortet
+- Tap-effekt när man klickar
+- Kortet går att dra med musen
+- AnimatePresence används för exit-animation
+- Interaktiv knapp inne i kortet
+- Animerade hjärtan visas när knappen klickas
+- Knapptexten ändras efter klick
 
 ## Kodexempel
 
@@ -20,51 +23,28 @@ Projektet visar hur Framer Motion kan användas för att skapa animationer och i
 <AnimatePresence>
   {showCard && (
     <motion.article
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -30 }}
-      whileHover={{ scale: 1.06 }}
-      transition={{ type: "spring" }}
+      className="card"
+      initial={{ opacity: 0, y: 40, scale: 0.9 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: -30, scale: 0.9 }}
+      whileHover={{ scale: 1.06, rotate: 1 }}
+      whileTap={{ scale: 0.97 }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+      }}
       drag
     >
-      Interaktivt kort
+      <h2>Hello there!</h2>
+
+      <motion.button
+        whileHover={{ scale: 1.08 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={() => setLoveSent(!loveSent)}
+      >
+        {loveSent ? "Love sent! 💕" : "Send love 💌"}
+      </motion.button>
     </motion.article>
   )}
 </AnimatePresence>
-```
-
-## Installation
-
-Installera projektets dependencies:
-
-```bash
-npm install
-```
-
-Installera Motion:
-
-```bash
-npm install motion
-```
-
-## Starta projektet
-
-```bash
-npm run dev
-```
-
-Öppna sedan localhost-adressen som visas i terminalen.
-
-## Tekniker
-
-* React
-* Vite
-* JavaScript
-* Framer Motion / Motion for React
-* CSS
-
-## Syfte
-
-Syftet med projektet är att demonstrera hur Framer Motion kan användas tillsammans med React för att skapa animationer med relativt lite kod.
-
-POC:n visar bland annat `initial`, `animate`, `exit`, `whileHover`, `transition`, `drag` och `AnimatePresence`.
