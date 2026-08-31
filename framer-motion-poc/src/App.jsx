@@ -3,8 +3,16 @@ import { motion, AnimatePresence } from "motion/react";
 import "./App.css";
 
 function App() {
-  const [showCard, setShowCard] = useState(true);
+  const [showCard, setShowCard] = useState(false);
   const [loveSent, setLoveSent] = useState(false);
+
+  const toggleCard = () => {
+    if (showCard) {
+      setLoveSent(false);
+    }
+
+    setShowCard(!showCard);
+  };
 
   return (
     <main className="app">
@@ -18,7 +26,7 @@ function App() {
 
       <button
         className="toggle-button"
-        onClick={() => setShowCard(!showCard)}
+        onClick={toggleCard}
       >
         {showCard ? "Dölj kort" : "Visa kort"}
       </button>
@@ -28,11 +36,28 @@ function App() {
           {showCard && (
             <motion.article
               className="card"
-              initial={{ opacity: 0, y: 40, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -30, scale: 0.9 }}
-              whileHover={{ scale: 1.06, rotate: 1 }}
-              whileTap={{ scale: 0.97 }}
+              initial={{
+                opacity: 0,
+                y: 40,
+                scale: 0.9,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                scale: 1,
+              }}
+              exit={{
+                opacity: 0,
+                y: -30,
+                scale: 0.9,
+              }}
+              whileHover={{
+                scale: 1.06,
+                rotate: 1,
+              }}
+              whileTap={{
+                scale: 0.97,
+              }}
               transition={{
                 type: "spring",
                 stiffness: 260,
@@ -50,20 +75,27 @@ function App() {
 
               <h2>Hello there!</h2>
 
-              <p>Här kommer en liten pop-up ruta för att meddela att du är fantastisk! ✨</p>
+              <p>
+                Här kommer en liten pop-up ruta för att meddela att du är
+                fantastisk! ✨
+              </p>
 
               <div className="card-tags">
-                <span>💜 Kämpa! </span>
-                <span>✨ Kämpa! </span>
-                <span>🌸 Kämpa! </span>
+                <span>💜 Kämpa!</span>
+                <span>✨ Kämpa!</span>
+                <span>🌸 Kämpa!</span>
               </div>
 
               <div className="love-area">
                 <motion.button
                   className="card-button"
                   onClick={() => setLoveSent(!loveSent)}
-                  whileHover={{ scale: 1.08 }}
-                  whileTap={{ scale: 0.9 }}
+                  whileHover={{
+                    scale: 1.08,
+                  }}
+                  whileTap={{
+                    scale: 0.9,
+                  }}
                 >
                   {loveSent ? "Love sent! 💕" : "Send love 💌"}
                 </motion.button>
