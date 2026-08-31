@@ -1,23 +1,23 @@
 # Framer Motion POC
 
-En liten Proof of Concept (POC) skapad med React, Vite och Framer Motion (numera kännetecknat som Motion for React).
+A small Proof of Concept (POC) built with React, Vite, and Framer Motion (now known as Motion for React).
 
-Projektet visar hur Motion kan användas tillsammans med React för att skapa animationer, interaktioner och visuella UI-effekter med relativt lite kod.
+This project demonstrates how Motion can be used together with React to create animations, interactions, and visual UI effects with relatively little code.
 
-## Funktioner
+## Features
 
-- Visa och dölj ett animerat kort
-- Animation när kortet visas
-- Animation när kortet försvinner
-- Hover-effekt på kortet
-- Tap-effekt när man klickar
-- Kortet går att dra med musen
-- AnimatePresence används för exit-animation
-- Interaktiv knapp inne i kortet
-- Animerade hjärtan visas när knappen klickas
-- Knapptexten ändras efter klick
+- Show and hide an animated card
+- Enter animation when the card appears
+- Exit animation when the card disappears
+- Hover effect on the card
+- Tap effect on click
+- Draggable card
+- AnimatePresence for exit animations
+- Interactive button inside the card
+- Animated hearts appear when the button is clicked
+- Button text changes after clicking
 
-## Kodexempel
+## Code Example
 
 ```jsx
 <AnimatePresence>
@@ -48,3 +48,4 @@ Projektet visar hur Motion kan användas tillsammans med React för att skapa an
     </motion.article>
   )}
 </AnimatePresence>
+```
